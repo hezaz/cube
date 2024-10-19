@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 19:09:22 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/19 19:50:59 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 		if (game)
 		{
 			if (((game->textures)[0])->img_ptr)
-				mlx_destroy_image(game->mlx, ((game->textures)[0]));
+				mlx_destroy_image(game->mlx, game->textures[0]);
 			if (((game->textures)[1])->img_ptr)
-				mlx_destroy_image(game->mlx, ((game->textures)[1]));
+				mlx_destroy_image(game->mlx, game->textures[1]);
 			if (((game->textures)[2])->img_ptr)
-				mlx_destroy_image(game->mlx, ((game->textures)[2]));
+				mlx_destroy_image(game->mlx, game->textures[2]);
 			if (((game->textures)[3])->img_ptr)
 				mlx_destroy_image(game->mlx, ((game->textures)[3]));
 			if (((game->textures)[0])->data)
@@ -47,16 +47,17 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 				free(((game->textures)[2])->data);
 			if (((game->textures)[3])->data)
 				free(((game->textures)[3])->data);
-			mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
-			if (game->mlx->mlx_ptr)
-			{
-				mlx_destroy_display(game->mlx->mlx_ptr);
-   				free(game->mlx->mlx_ptr);
-			}
+			if (game->mlx->win_ptr)
+				mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
+
+			mlx_destroy_display(game->mlx->mlx_ptr);
+   			free(game->mlx->mlx_ptr);
+
 			free(game->textures);
 			
 		}
 		ft_lstclear(&garbage_list, delete);
+		exit(1);
 		return (NULL);
 	}
 	else

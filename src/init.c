@@ -3,35 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/19 19:37:32 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:02:40 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_texture_img  *load_texture(void *mlx_ptr, char *path)
+void  load_texture(void *mlx_ptr, char *path, t_texture_img *texture)
 {
-    t_texture_img *texture;
-
-	texture = init_text_img();
-
     ft_printf("Chargement de la texture : %s\n", path);
     texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture->width, &texture->height);
     if (!texture->img_ptr)
         ft_error("Erreur : Impossible de charger la texture");
     texture->data = mlx_get_data_addr(texture->img_ptr, &texture->bpp, &texture->size_line, &texture->endian);
-    return (texture);
 }
 
 void    go_load_textures(t_game *game)
 {
-    game->textures[0] = load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall);
-    game->textures[1] = load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall);
-    game->textures[2] = load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall);
-    game->textures[3] = load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall);
+    load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall, game->textures[0]);
+    load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall, game->textures[1]);
+    load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall, game->textures[2]);
+    load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall, game->textures[3]);
 }
 
 t_texture_img   *init_text_img(void)
@@ -161,6 +156,10 @@ t_game *init_game(void)
     game->map = init_map();
     game->mlx = init_mlx();
     game->img = init_img();
+	game->textures[0] = init_text_img();
+	game->textures[1] = init_text_img();
+	game->textures[2] = init_text_img();
+	game->textures[3] = init_text_img();
     game->player = NULL;
     return (game);
 }

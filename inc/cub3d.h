@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 19:31:32 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:03:10 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include "define.h"
 # include "struct.h"
 
-t_texture_img	*load_texture(void *mlx_ptr, char *path);
+void  load_texture(void *mlx_ptr, char *path, t_texture_img *texture);
 t_player		*init_player(t_map *map);
 int				handle_keypress(int keysym, t_game *data);
 int				get_texture_color(t_texture_img *texture, int x, int y);
