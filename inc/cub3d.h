@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 19:12:18 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/19 19:31:32 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int handle_keypress(int keysym, t_game *game);
 int			render_3d(t_game *data);
 
 /********** init.c *************/
+t_texture_img   *init_text_img(void);
 t_map		*init_map(void);
 t_mlx		*init_mlx(void);
 t_img		init_img(void);

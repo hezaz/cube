@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/19 19:20:56 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/19 19:37:32 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_texture_img  *load_texture(void *mlx_ptr, char *path)
 {
     t_texture_img *texture;
 
-	texture = NULL;
+	texture = init_text_img();
 
     ft_printf("Chargement de la texture : %s\n", path);
     texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture->width, &texture->height);
@@ -32,6 +32,26 @@ void    go_load_textures(t_game *game)
     game->textures[1] = load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall);
     game->textures[2] = load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall);
     game->textures[3] = load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall);
+}
+
+t_texture_img   *init_text_img(void)
+{
+    t_texture_img   *text_img;
+
+    text_img = malloc(sizeof(t_texture_img));
+    if (!text_img)
+        ft_error("[init_text_img(...)] : malloc failed");
+    garbage_collector(text_img, false, NULL);
+
+    text_img->img_ptr = NULL;
+    text_img->data = NULL;
+    text_img->width = 0;
+    text_img->height = 0;
+    text_img->bpp = 0;
+    text_img->size_line = 0;
+    text_img->endian = 0;
+
+    return(text_img);
 }
 
 
