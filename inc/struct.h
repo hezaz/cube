@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/12 17:50:16 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 19:10:06 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_game
 	t_mlx	*mlx;
 	t_map	*map;
 	t_img	img;
-	t_texture_img   textures[4];
+	t_texture_img	*textures[4];
 	t_player *player;
 }	t_game;
 

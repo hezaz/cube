@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:57:32 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/12 18:01:01 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 19:13:07 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	draw_line(t_game *data, t_ray *ray, int x)
 	int				draw_start;
 	int				draw_end;
 	double			wallX;
-	t_texture_img	texture;
+	t_texture_img	*texture;
 	int				texX;
 	double			step;
 	double			texPos;
@@ -152,21 +152,21 @@ void	draw_line(t_game *data, t_ray *ray, int x)
 		texture = data->textures[0]; // Mur Nord
 
 	// Calcul de la coordonnée X sur la texture
-	texX = (int)(wallX * (double)(texture.width));
+	texX = (int)(wallX * (double)(texture->width));
 	if ((ray->side == 0 && ray->ray_dirX > 0) || (ray->side == 1 && ray->ray_dirY < 0))
-		texX = texture.width - texX - 1;
+		texX = texture->width - texX - 1;
 
 	// Calcul du pas pour incrémenter la coordonnée de texture par pixel d'écran
-	step = 1.0 * texture.height / line_height;
+	step = 1.0 * texture->height / line_height;
 	// Coordonnée de texture de départ
 	texPos = (draw_start - WINDOW_HEIGHT / 2 + line_height / 2) * step;
 
 	y = draw_start;
 	while (y <= draw_end)
 	{
-		int texY = (int)texPos & (texture.height - 1);
+		int texY = (int)texPos & (texture->height - 1);
 		texPos += step;
-		int color = get_texture_color(&texture, texX, texY);
+		int color = get_texture_color(texture, texX, texY);
 		if (ray->side == 1)
 			color = (color >> 1) & 0x7F7F7F; // Assombrir les murs Nord/Sud
 		img_pix_put(&data->img, (WINDOW_WIDTH - x), y, color);

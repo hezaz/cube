@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 18:28:00 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/19 19:12:18 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include "define.h"
 # include "struct.h"
 
-t_texture_img	load_texture(void *mlx_ptr, char *path);
+t_texture_img	*load_texture(void *mlx_ptr, char *path);
 t_player		*init_player(t_map *map);
 int				handle_keypress(int keysym, t_game *data);
 int				get_texture_color(t_texture_img *texture, int x, int y);
@@ -57,7 +57,7 @@ char		*skip_spaces(char *line);
 void		get_texture_line(t_map *map, char *line);
 
 void		get_map_line(t_map *map, char *line, int *row);
-void		check_map(t_map *map_data);
+void		check_map(t_game *game);
 void		handle_wall_texture(char *line, char **texture_path,
 				t_rgb *texture_rgb, int *is_xpm);
 void		handle_texture_north(t_map *map, char *line);
@@ -67,7 +67,7 @@ void		handle_texture_west(t_map *map, char *line);
 void		handle_floor_ceiling_texture(char *line, t_rgb *texture_rgb, int *is_rgb);
 void		handle_texture_floor(t_map *map, char *line);
 void		handle_texture_ceiling(t_map *map, char *line);
-void	error_and_exit(char *message);
+void	error_and_exit(char *message, t_game *game);
 
 /************* error.c *************/
 void		ft_error(char *msg);
@@ -91,7 +91,7 @@ void handle_input(t_game *game, int keysym);
 int handle_keypress(int keysym, t_game *game);
 
 /********** render.c *************/
-int			render_2d(t_game *data);
+int			render_3d(t_game *data);
 
 /********** init.c *************/
 t_map		*init_map(void);

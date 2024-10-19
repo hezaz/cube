@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 05:53:21 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 18:58:01 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,20 +104,21 @@ int main(int ac, char **av)
     data->player = init_player(data->map);
 	go_load_textures(data); // Initialiser le joueur
     // print_map(data->map); // Test
-    check_map(data->map);
+    check_map(data);
     data->img.mlx_img = mlx_new_image(data->mlx->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
     data->img.addr = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp, &data->img.line_len, &data->img.endian);
 
     /* Setup hooks */
-    mlx_loop_hook(data->mlx->mlx_ptr, &render_2d, data);
+    mlx_loop_hook(data->mlx->mlx_ptr, &render_3d, data);
     mlx_hook(data->mlx->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
     mlx_hook(data->mlx->win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, data);
 
     mlx_loop(data->mlx->mlx_ptr);
 
     /* we will exit the loop if there's no window left, and execute this code */
-    mlx_destroy_display(data->mlx->mlx_ptr);
-    free(data->mlx->mlx_ptr);
+	garbage_collector(NULL, true, data);
+    // mlx_destroy_display(data->mlx->mlx_ptr);
+    // free(data->mlx->mlx_ptr);
 
     return (1);
 }

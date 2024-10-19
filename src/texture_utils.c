@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/19 18:21:06 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:49:15 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_rgb	parse_rgb(char *line)
 
 	values = ft_split(line, (char const *)",");
 	if (!values || !values[0] || !values[1] || !values[2])
-		error_and_exit("Invalid RGB color");
+		error_and_exit("Invalid RGB color", NULL);
 	color.r = ft_atoi(values[0]);
 	color.g = ft_atoi(values[1]);
 	color.b = ft_atoi(values[2]);

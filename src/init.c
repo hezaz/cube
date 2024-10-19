@@ -6,21 +6,23 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/19 18:29:34 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/19 19:20:56 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_texture_img  load_texture(void *mlx_ptr, char *path)
+t_texture_img  *load_texture(void *mlx_ptr, char *path)
 {
-    t_texture_img texture;
+    t_texture_img *texture;
+
+	texture = NULL;
 
     ft_printf("Chargement de la texture : %s\n", path);
-    texture.img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture.width, &texture.height);
-    if (!texture.img_ptr)
+    texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture->width, &texture->height);
+    if (!texture->img_ptr)
         ft_error("Erreur : Impossible de charger la texture");
-    texture.data = mlx_get_data_addr(texture.img_ptr, &texture.bpp, &texture.size_line, &texture.endian);
+    texture->data = mlx_get_data_addr(texture->img_ptr, &texture->bpp, &texture->size_line, &texture->endian);
     return (texture);
 }
 
