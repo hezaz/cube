@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 18:04:41 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:28:47 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_map	*get_map(char *path)
 	map->map = malloc(sizeof(char *) * map->height);
 	if (!map->map)
 		ft_error("[get_map(...)] : map->map malloc failed");
-	garbage_collector(map->map, false);
+	garbage_collector(map->map, false, NULL);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		ft_error("[get_map(...)] : opened file returned < 0");

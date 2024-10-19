@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 18:00:34 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:27:40 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void	ft_error(char *msg)
 
 static void	delete(void *ptr);
 
-void	*garbage_collector(void *ptr, bool clean)
+void	*garbage_collector(void *ptr, bool clean, t_game *game)
 {
 	static t_list	*garbage_list;
 
 	if (clean)
 	{
+		if (game)
+		{
+			
+		}
 		ft_lstclear(&garbage_list, delete);
 		return (NULL);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:25:48 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 06:39:22 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 18:28:42 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	get_map_line(t_map *map, char *line, int *row)
 	map->map[*row] = malloc((map->width + 1) * sizeof(char));
 	if (!map->map[*row])
 		ft_error("[get_map_line(...)] : malloc failed");
-	garbage_collector(map->map[*row], false);
+	garbage_collector(map->map[*row], false,NULL);
 
 	i = 0;
 	while (line[i] && i < map->width)

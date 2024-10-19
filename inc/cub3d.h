@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/12 18:18:11 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 18:28:00 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 # include "define.h"
 # include "struct.h"
 
-t_texture_img  load_texture(void *mlx_ptr, char *path);
-t_player	*init_player(t_map *map);
-int			handle_keypress(int keysym, t_game *data);
-int get_texture_color(t_texture_img *texture, int x, int y);
-//void ft_error(char *msg);
+t_texture_img	load_texture(void *mlx_ptr, char *path);
+t_player		*init_player(t_map *map);
+int				handle_keypress(int keysym, t_game *data);
+int				get_texture_color(t_texture_img *texture, int x, int y);
+// void			ft_error(char *msg);
 // void		rotate_player(t_player *player, int direction);
 // void		move_player(t_player *player, t_map *map, float move_step);
 
@@ -71,7 +71,7 @@ void	error_and_exit(char *message);
 
 /************* error.c *************/
 void		ft_error(char *msg);
-void		*garbage_collector(void *ptr, bool clean);
+void		*garbage_collector(void *ptr, bool clean, t_game *game);
 
 /************* hooks.c *************/
 int			handle_no_event(void *data);

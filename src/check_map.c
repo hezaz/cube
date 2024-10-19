@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:23 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/18 22:32:57 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 18:27:49 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void	error_and_exit(char *message)
+void	error_and_exit(char *message, t_game *game)
 {
 	printf("Error\n%s\n", message);
+	garbage_collector(NULL, true,game);
 	exit(1);
 }
 
@@ -27,7 +28,7 @@ int	is_valid_character(char c)
 		|| c == ' ');
 }
 
-void	check_map(t_map *map_data)
+void	check_map(t_game *game)
 {
 	int		y;
 	int		x;
@@ -38,8 +39,9 @@ void	check_map(t_map *map_data)
 	int		width;
 	int		rightmost_non_space;
 
-	map = map_data->map;
-	height = map_data->height;
+
+	map = game->map->map;
+	height = game->map->height;
 	max_width = 0;
 	// Calculate the maximum width of the map
 	for (y = 0; y < height; y++)
@@ -55,7 +57,7 @@ void	check_map(t_map *map_data)
 			&& map[0][x] != '\n')
 		{
 			ft_printf("%c", map[0][x]);
-			error_and_exit("Map is not closed at top border");
+			error_and_exit("Map is not closed at top border", game);
 		}
 	}
 	// Check bottom border
@@ -63,14 +65,14 @@ void	check_map(t_map *map_data)
 	{
 		if (map[height - 1][x] != '1' && map[height - 1][x] != ' ' && map[height
 			- 1][x] != '\0' && map[height - 1][x] != '\n')
-			error_and_exit("Map is not closed at bottom border");
+			error_and_exit("Map is not closed at bottom border",game);
 	}
 	// Check left and right borders
 	for (y = 0; y < height; y++)
 	{
 		width = ft_strlen(map[y]);
 		if (width > 0 && (map[y][0] != '1' && map[y][0] != ' '))
-			error_and_exit("Map is not closed at left border");
+			error_and_exit("Map is not closed at left border", game);
 		if (width > 1)
 		{
 			rightmost_non_space = width - 1;
@@ -79,7 +81,7 @@ void	check_map(t_map *map_data)
 					|| map[y][rightmost_non_space] == '\n'))
 				rightmost_non_space--;
 			if (map[y][rightmost_non_space] != '1')
-				error_and_exit("Map is not closed at right border");
+				error_and_exit("Map is not closed at right border",game);
 		}
 	}
 	// Check inner part of the map
@@ -94,7 +96,7 @@ void	check_map(t_map *map_data)
 					- 1] == ' ' || map[y][x + 1] == ' ' || map[y - 1][x] == '\0'
 					|| map[y + 1][x] == '\0' || map[y][x - 1] == '\0'
 					|| map[y][x + 1] == '\0')
-					error_and_exit("Map is not closed around spaces");
+					error_and_exit("Map is not closed around spaces", game);
 			}
 		}
 	}

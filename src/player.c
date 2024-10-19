@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:16 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/19 18:12:21 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:29:49 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	handle_keypress(int keysym, t_game *game)
 	if (keysym == XK_Escape)
 	{
 		mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
-		garbage_collector(NULL, true);
+		garbage_collector(NULL, true,NULL);
 		exit(EXIT_FAILURE);
 	}
 	else
