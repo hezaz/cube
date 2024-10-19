@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/19 05:52:44 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/19 15:44:52 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_texture_img  load_texture(void *mlx_ptr, char *path)
     t_texture_img texture;
 
     ft_printf("Chargement de la texture : %s\n", path);
-    texture.img_ptr = mlx_xpm_file_to_image(mlx_ptr, path, &texture.width, &texture.height);
+    texture.img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture.width, &texture.height);
     if (!texture.img_ptr)
         ft_error("Erreur : Impossible de charger la texture");
     texture.data = mlx_get_data_addr(texture.img_ptr, &texture.bpp, &texture.size_line, &texture.endian);
@@ -40,6 +40,7 @@ t_vector    *init_vector(double x, double y)
     new_vect = malloc(sizeof(t_vector));
     if (!new_vect)
         ft_error("[init_vector(...)] : vector malloc failed");
+    garbage_collector(new_vect, false);
     new_vect->x = x;
     new_vect->y = y;
     return(new_vect);
