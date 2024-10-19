@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hedi <hedi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/19 15:35:11 by hedi             ###   ########.fr       */
+/*   Updated: 2024/10/19 18:00:34 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(char *msg)
 	ft_putstr_fd("\n", 2);
 }
 
-static void delete (void *ptr);
+static void	delete(void *ptr);
 
 void	*garbage_collector(void *ptr, bool clean)
 {
@@ -37,7 +37,7 @@ void	*garbage_collector(void *ptr, bool clean)
 	}
 }
 
-static void delete (void *ptr)
+static void	delete(void *ptr)
 {
 	free(ptr);
 	ptr = NULL;
