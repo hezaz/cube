@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/20 12:26:45 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/20 13:00:38 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 						printf("Destroying image %d\n", i);
                 		mlx_destroy_image(game->mlx->mlx_ptr, game->textures[i]->img_ptr);
 					}
-					if (game->textures[i]->data)
-                	{
-						printf("not Freeing data for texture %d\n", i);
-						// free(game->textures[i]->data);
-            		}
+					// if (game->textures[i]->data)
+                	// {
+					// 	printf("not Freeing data for texture %d\n", i);
+					// 	// free(game->textures[i]->data);
+            		// }
 				}
             	// free(game->textures[i]);
         }

@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:31:05 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/20 12:35:01 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/20 13:24:08 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	handle_wall_texture(char *line, char **path, t_rgb *rgb, int *is_xpm)
 	else
 	{
 		*path = ft_strndup(line, ft_strlen(line) - 1);
-		garbage_collector(path, false, NULL);
+		// garbage_collector(path, false, NULL);
+		// garbage_collector(&path, false, NULL);
 		*is_xpm = 1;
 	}
 }

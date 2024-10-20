@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/19 18:49:15 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/20 13:04:45 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,12 @@ t_rgb	parse_rgb(char *line)
 	color.g = ft_atoi(values[1]);
 	color.b = ft_atoi(values[2]);
 	free(values[0]);
+	values[0] = NULL;
 	free(values[1]);
+	values[1] = NULL;
 	free(values[2]);
+	values[2] = NULL;
 	free(values);
+	values = NULL;
 	return (color);
 }

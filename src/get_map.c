@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 18:28:47 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/20 13:02:41 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_map	*get_map(char *path)
 		line = get_next_line(fd);
 	}
 	free(line);
+	line = NULL;
 	return (map);
 }
 
@@ -70,5 +71,6 @@ void	get_map_dim(t_map *map, char *path)
 		line = get_next_line(fd);
 	}
 	free(line);
+	line = NULL;
 	map->height = height;
 }
