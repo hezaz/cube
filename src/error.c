@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 19:50:59 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/20 10:59:50 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,27 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 
 	if (clean)
 	{
-		if (game)
+		if (clean)
 		{
-			if (((game->textures)[0])->img_ptr)
-				mlx_destroy_image(game->mlx, game->textures[0]);
-			if (((game->textures)[1])->img_ptr)
-				mlx_destroy_image(game->mlx, game->textures[1]);
-			if (((game->textures)[2])->img_ptr)
-				mlx_destroy_image(game->mlx, game->textures[2]);
-			if (((game->textures)[3])->img_ptr)
-				mlx_destroy_image(game->mlx, ((game->textures)[3]));
-			if (((game->textures)[0])->data)
-				free(((game->textures)[0])->data);
-			if (((game->textures)[1])->data)
-				free(((game->textures)[1])->data);
-			if (((game->textures)[1])->data)
-				free(((game->textures)[1])->data);
-			if (((game->textures)[2])->data)
-				free(((game->textures)[2])->data);
-			if (((game->textures)[3])->data)
-				free(((game->textures)[3])->data);
-			if (game->mlx->win_ptr)
-				mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
-
-			mlx_destroy_display(game->mlx->mlx_ptr);
-   			free(game->mlx->mlx_ptr);
-
-			free(game->textures);
-			
-		}
+    		for (int i = 0; i < 4; i++)
+			{
+				printf("Freeing texture %d, img_ptr: %p, data: %p\n", i, game->textures[i]->img_ptr, game->textures[i]->data);
+        		if (game->textures[i])
+				{
+            		if (game->textures[i]->img_ptr)
+					{
+						printf("Destroying image %d\n", i);
+                		mlx_destroy_image(game->mlx->mlx_ptr, game->textures[i]->img_ptr);
+					}
+					if (game->textures[i]->data)
+                	{
+						printf("Freeing data for texture %d\n", i);
+						free(game->textures[i]->data);
+            		}
+				}
+            	free(game->textures[i]);
+        }
+    }
 		ft_lstclear(&garbage_list, delete);
 		exit(1);
 		return (NULL);

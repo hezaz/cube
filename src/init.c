@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/19 20:02:40 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/20 11:09:36 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void  load_texture(void *mlx_ptr, char *path, t_texture_img *texture)
     if (!texture->img_ptr)
         ft_error("Erreur : Impossible de charger la texture");
     texture->data = mlx_get_data_addr(texture->img_ptr, &texture->bpp, &texture->size_line, &texture->endian);
+    printf("Texture data address: %p\n", texture->data);
 }
 
 void    go_load_textures(t_game *game)
