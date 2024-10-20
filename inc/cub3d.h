@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 20:03:10 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/20 15:24:10 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int get_texture_color(t_texture_img *texture, int x, int y);
 void	draw_line(t_game *data, t_ray *ray, int x);
 
 /********** display_3d.c *************/
+int	rgb_to_int(t_rgb rgb);
 void	draw_ceiling(t_game *data);
 void	draw_floor(t_game *data);
 void	draw_background(t_game *data);

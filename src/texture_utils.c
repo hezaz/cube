@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/20 13:04:45 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/20 16:24:18 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_rgb	parse_rgb(char *line)
 	color.r = ft_atoi(values[0]);
 	color.g = ft_atoi(values[1]);
 	color.b = ft_atoi(values[2]);
+	printf("parseRGB: %d %d %d\n", color.r, color.g, color.b);
 	free(values[0]);
 	values[0] = NULL;
 	free(values[1]);
