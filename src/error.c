@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/20 13:00:38 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/20 18:19:18 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 					{
 						printf("Destroying image %d\n", i);
                 		mlx_destroy_image(game->mlx->mlx_ptr, game->textures[i]->img_ptr);
+
 					}
+
 					// if (game->textures[i]->data)
                 	// {
 					// 	printf("not Freeing data for texture %d\n", i);
@@ -47,6 +49,23 @@ void	*garbage_collector(void *ptr, bool clean, t_game *game)
 				}
             	// free(game->textures[i]);
         }
+		if (game->map->texture->north_wall)
+			free(game->map->texture->north_wall);
+		if (game->map->texture->east_wall)
+			free(game->map->texture->east_wall);
+		if (game->map->texture->west_wall)
+			free(game->map->texture->west_wall);
+		if (game->map->texture->south_wall)
+			free(game->map->texture->south_wall);
+		if (game->img.mlx_img)
+			mlx_destroy_image(game->mlx->mlx_ptr, game->img.mlx_img);
+		if (game->mlx->win_ptr)
+			mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
+		if (game->mlx->mlx_ptr)
+		{
+			mlx_destroy_display(game->mlx->mlx_ptr);
+			free(game->mlx->mlx_ptr);
+		}
     }
 		ft_lstclear(&garbage_list, delete);
 		exit(1);
