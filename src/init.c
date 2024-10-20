@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/20 11:09:36 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/20 12:48:29 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void  load_texture(void *mlx_ptr, char *path, t_texture_img *texture)
 {
+    char    *full_path;
+
+    full_path = ft_strjoin("textures/", path);
+    garbage_collector(full_path, false, NULL);
     ft_printf("Chargement de la texture : %s\n", path);
-    texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, ft_strjoin("textures/", path), &texture->width, &texture->height);
+    texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, full_path, &texture->width, &texture->height);
     if (!texture->img_ptr)
         ft_error("Erreur : Impossible de charger la texture");
     texture->data = mlx_get_data_addr(texture->img_ptr, &texture->bpp, &texture->size_line, &texture->endian);
@@ -109,13 +113,13 @@ t_map	*init_map(void)
 	map = malloc(sizeof(t_map));
 	if (!map)
 		ft_error("[init_map(...)] : t_map malloc failed");
-	garbage_collector(map, false,NULL);
+	garbage_collector(map, false, NULL);
 	map->height = 0;
 	map->width = 0;
 	map->texture = malloc(sizeof(t_texture));
 	if (!map->texture)
 		ft_error("[init_map(...)] : t_texture malloc failed");
-	garbage_collector(map->texture, false,NULL);
+	garbage_collector(map->texture, false, NULL);
 	return (map);
 }
 
