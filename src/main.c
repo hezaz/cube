@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/24 15:32:15 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/24 16:20:02 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ int	initialize_game_data(t_game *data, char *map_path)
 	return (1);
 }
 
+int	handle_exit(t_game *game)
+{
+	garbage_collector(NULL, true, game);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+
 void	setup_hooks(t_game *data)
 {
 	mlx_loop_hook(data->mlx->mlx_ptr, &render_3d, data);
@@ -67,6 +75,8 @@ void	setup_hooks(t_game *data)
 		data);
 	mlx_hook(data->mlx->win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease,
 		data);
+	mlx_hook(data->mlx->win_ptr, 17, 0L, &handle_exit, data);
+
 }
 
 int	main(int ac, char **av)
