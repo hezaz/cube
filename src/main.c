@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/24 16:20:02 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/24 16:24:49 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ int	handle_exit(t_game *game)
 	garbage_collector(NULL, true, game);
 	exit(EXIT_SUCCESS);
 	return (0);
+}
+
+double	deg_to_rad(double angle_in_degrees)
+{
+	return (angle_in_degrees * M_PI / 180.0);
 }
 
 
