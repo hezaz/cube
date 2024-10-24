@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:12:48 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/20 16:32:36 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:49:26 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	rgb_to_int(t_rgb rgb)
 {
-	int color;
+	int	color;
 
 	printf("rgb is %d, %d, %d\n", rgb.r, rgb.b, rgb.g);
 	color = rgb.r;
@@ -25,7 +25,7 @@ int	rgb_to_int(t_rgb rgb)
 
 void	draw_ceiling(t_game *data)
 {
-	int i;
+	int	i;
 	int	j;
 	int	color;
 
@@ -45,7 +45,7 @@ void	draw_ceiling(t_game *data)
 
 void	draw_floor(t_game *data)
 {
-	int i;
+	int	i;
 	int	j;
 	int	color;
 

@@ -3,32 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/20 13:02:41 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:02:29 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_map	*get_map(char *path)
+void	initialize_map(t_map *map, char *path)
 {
-	int		fd;
-	int		map_row;
-	char	*line;
-	t_map	*map;
-
-	map = init_map();
 	map->height++;
 	get_map_dim(map, path);
 	map->map = malloc(sizeof(char *) * map->height);
 	if (!map->map)
-		ft_error("[get_map(...)] : map->map malloc failed");
+		ft_error("[initialize_map] : map->map malloc failed");
 	garbage_collector(map->map, false, NULL);
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		ft_error("[get_map(...)] : opened file returned < 0");
+}
+
+void	process_map_file(int fd, t_map *map)
+{
+	char	*line;
+	int		map_row;
+
 	line = get_next_line(fd);
 	map_row = 0;
 	while (line)
@@ -45,6 +43,19 @@ t_map	*get_map(char *path)
 	}
 	free(line);
 	line = NULL;
+}
+
+t_map	*get_map(char *path)
+{
+	int		fd;
+	t_map	*map;
+
+	map = init_map();
+	initialize_map(map, path);
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		ft_error("[get_map] : failed to open file");
+	process_map_file(fd, map);
 	return (map);
 }
 

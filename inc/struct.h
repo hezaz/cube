@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/19 19:10:06 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/24 15:41:41 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,18 @@ typedef struct s_ray
     double  perp_wall_dist;
     bool    wall_hit;
 }   t_ray;
+
+typedef struct s_draw_params
+{
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+	double			wallX;
+	int				texX;
+	double			step;
+	double			texPos;
+	t_texture_img	*texture;
+}				t_draw_params;
 
 
 

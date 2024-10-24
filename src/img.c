@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hedi <hedi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:46:32 by bvieilhe          #+#    #+#             */
-/*   Updated: 2024/07/19 15:36:00 by hedi             ###   ########.fr       */
+/*   Updated: 2024/10/24 15:06:09 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
-	char 	*pixel;
-	int 	i;
+	char	*pixel;
+	int		i;
 
 	i = img->bpp - 8;
 	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
