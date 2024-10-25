@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/24 16:24:49 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/25 22:16:10 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	initialize_mlx(t_game *data)
 int	initialize_game_data(t_game *data, char *map_path)
 {
 	data->map = get_map(map_path);
+	if (data->map == NULL || data->map->map_error)
+		error_and_exit("Error: map or cub file invalid", data);
 	data->player = init_player(data->map);
 	if (!data->player)
 		return (0);

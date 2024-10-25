@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/24 16:21:49 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/25 22:12:12 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_texture_img
 typedef struct s_map
 {
 	char			**map;
+	int				map_error;
 	int				height;
 	int				width;
 	t_texture		*texture;

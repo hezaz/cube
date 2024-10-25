@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/24 15:30:38 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/25 22:12:37 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ t_map	*init_map(void)
 	if (!map)
 		ft_error("[init_map(...)] : t_map malloc failed");
 	garbage_collector(map, false, NULL);
+	map->map_error = 0;
 	map->height = 0;
 	map->width = 0;
 	map->texture = malloc(sizeof(t_texture));

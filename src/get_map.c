@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/24 15:02:29 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/25 22:13:40 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,25 @@ void	initialize_map(t_map *map, char *path)
 void	process_map_file(int fd, t_map *map)
 {
 	char	*line;
+	int		cpt;
 	int		map_row;
 
 	line = get_next_line(fd);
 	map_row = 0;
+	cpt = 0;
 	while (line)
 	{
 		if (*line != '\n')
 		{
+			cpt++;
 			if (is_texture_line(line))
 				get_texture_line(map, line);
-			else if (is_map_line(line))
+			else if (!is_map_line(line) && cpt <7) 
+				map->map_error = 1;
+			else if (is_map_line(line) && cpt >= 7)
 				get_map_line(map, line, &map_row);
+			else	
+				map->map_error = 1;
 		}
 		free(line);
 		line = get_next_line(fd);
