@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/20 16:24:18 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:59:21 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,24 @@ t_rgb	parse_rgb(char *line)
 	free(values);
 	values = NULL;
 	return (color);
+}
+
+t_texture_img	*select_texture(t_game *data, t_ray *ray)
+{
+	if (ray->side == 0 && ray->ray_dirX > 0)
+		return (data->textures[2]);
+	else if (ray->side == 0 && ray->ray_dirX < 0)
+		return (data->textures[3]);
+	else if (ray->side == 1 && ray->ray_dirY > 0)
+		return (data->textures[1]);
+	else
+		return (data->textures[0]);
+}
+
+int	get_texture_color(t_texture_img *texture, int x, int y)
+{
+	char	*dst;
+
+	dst = texture->data + (y * texture->size_line + x * (texture->bpp / 8));
+	return (*(unsigned int *)dst);
 }

@@ -3,80 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:57:32 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/24 15:58:49 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 09:03:30 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	calculate_line_dimensions(t_ray *ray, int *line_height, int *draw_start,
-		int *draw_end)
-{
-	*line_height = (int)(WINDOW_HEIGHT / ray->perp_wall_dist);
-	*draw_start = -(*line_height) / 2 + WINDOW_HEIGHT / 2;
-	if (*draw_start < 0)
-		*draw_start = 0;
-	*draw_end = *line_height / 2 + WINDOW_HEIGHT / 2;
-	if (*draw_end >= WINDOW_HEIGHT)
-		*draw_end = WINDOW_HEIGHT - 1;
-}
-
-double	calculate_wallx(t_game *data, t_ray *ray)
-{
-	double	wallx;
-
-	if (ray->side == 0)
-		wallx = data->player->pos->y + ray->perp_wall_dist * ray->ray_dirY;
-	else
-		wallx = data->player->pos->x + ray->perp_wall_dist * ray->ray_dirX;
-	return (wallx - floor(wallx));
-}
-
-t_texture_img	*select_texture(t_game *data, t_ray *ray)
-{
-	if (ray->side == 0 && ray->ray_dirX > 0)
-		return (data->textures[2]);
-	else if (ray->side == 0 && ray->ray_dirX < 0)
-		return (data->textures[3]);
-	else if (ray->side == 1 && ray->ray_dirY > 0)
-		return (data->textures[1]);
-	else
-		return (data->textures[0]);
-}
-
-int	adjust_texture_x(t_ray *ray, t_texture_img *texture, double wallX)
-{
-	int	text;
-
-	text = (int)(wallX * (double)(texture->width));
-	if ((ray->side == 0 && ray->ray_dirX > 0) || (ray->side == 1
-			&& ray->ray_dirY < 0))
-		text = texture->width - text - 1;
-	return (text);
-}
-
-void	draw_texture_line(t_game *data, t_ray *ray, int x,
-		t_draw_params *params)
-{
-	int	y;
-	int	texy;
-	int	color;
-
-	y = params->draw_start;
-	while (y <= params->draw_end)
-	{
-		texy = (int)params->texPos & (params->texture->height - 1);
-		params->texPos += params->step;
-		color = get_texture_color(params->texture, params->texX, texy);
-		if (ray->side == 1)
-			color = (color >> 1) & 0x7F7F7F;
-		img_pix_put(&data->img, (WINDOW_WIDTH - x), y, color);
-		y++;
-	}
-}
 
 void	draw_line(t_game *data, t_ray *ray, int x)
 {
@@ -91,14 +25,6 @@ void	draw_line(t_game *data, t_ray *ray, int x)
 	params.texPos = (params.draw_start - WINDOW_HEIGHT / 2 + params.line_height
 			/ 2) * params.step;
 	draw_texture_line(data, ray, x, &params);
-}
-
-int	get_texture_color(t_texture_img *texture, int x, int y)
-{
-	char	*dst;
-
-	dst = texture->data + (y * texture->size_line + x * (texture->bpp / 8));
-	return (*(unsigned int *)dst);
 }
 
 void	perform_dda(t_game *data, t_ray *ray)
