@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 10:11:57 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 12:02:12 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ t_img	init_img(void);
 t_game	*init_game(void);
 
 /********** move.c *************/
-void			move_player(t_game *data, int x);
+void			move_player(t_game *data, int x, int y);
 void			rotate_player(t_game *data, double angle);
 double	deg_to_rad(double angle_in_degrees);
 

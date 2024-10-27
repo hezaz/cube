@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:16 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/24 15:33:12 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 12:02:35 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void	handle_input(t_game *game, int keysym)
 {
 	if (keysym == XK_w)
-		move_player(game, 1);
+		move_player(game, 1, 0);
 	else if (keysym == XK_s)
-		move_player(game, -1);
+		move_player(game, -1, 0);
 	else if (keysym == XK_a)
-		rotate_player(game, DEG_TO_RAD(-ROTATE_SPEED));
+		move_player(game, 0, -1);
 	else if (keysym == XK_d)
+		move_player(game, 0, 1);
+	else if (keysym == XK_Left)
+		rotate_player(game, DEG_TO_RAD(-ROTATE_SPEED));
+	else if (keysym == XK_Right)
 		rotate_player(game, DEG_TO_RAD(ROTATE_SPEED));
 }
 
