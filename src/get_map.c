@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/25 22:13:40 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 10:10:32 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,25 @@ void	process_map_file(int fd, t_map *map)
 	while (line)
 	{
 		if (*line != '\n')
-		{
-			cpt++;
-			if (is_texture_line(line))
-				get_texture_line(map, line);
-			else if (!is_map_line(line) && cpt <7) 
-				map->map_error = 1;
-			else if (is_map_line(line) && cpt >= 7)
-				get_map_line(map, line, &map_row);
-			else	
-				map->map_error = 1;
-		}
+			process_line(line, &cpt, map, &map_row);
 		free(line);
 		line = get_next_line(fd);
 	}
 	free(line);
 	line = NULL;
+}
+
+void	process_line(char *line, int *cpt, t_map *map, int *row)
+{
+	(*cpt)++;
+	if (is_texture_line(line))
+		get_texture_line(map, line);
+	else if (!is_map_line(line) && *cpt < 7)
+		map->map_error = 1;
+	else if (is_map_line(line) && *cpt >= 7)
+		get_map_line(map, line, row);
+	else
+		map->map_error = 1;
 }
 
 t_map	*get_map(char *path)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:58:07 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 09:02:08 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 10:08:38 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 08:39:16 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 10:08:18 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	handle_exit(t_game *game)
 	return (0);
 }
 
-
 void	setup_hooks(t_game *data)
 {
 	mlx_loop_hook(data->mlx->mlx_ptr, &render_3d, data);
@@ -78,7 +77,6 @@ void	setup_hooks(t_game *data)
 	mlx_hook(data->mlx->win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease,
 		data);
 	mlx_hook(data->mlx->win_ptr, 17, 0L, &handle_exit, data);
-
 }
 
 int	main(int ac, char **av)

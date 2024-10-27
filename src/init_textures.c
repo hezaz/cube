@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:53 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 08:32:06 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 11:11:53 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ void	load_texture(void *mlx_ptr, char *path, t_texture_img *texture)
 
 void	go_load_textures(t_game *game)
 {
-	load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall,
-		game->textures[0]);
-	load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall,
-		game->textures[1]);
-	load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall,
-		game->textures[2]);
-	load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall,
-		game->textures[3]);
+	if (game->map->texture->north_wall_is_xpm)
+		load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall,
+			game->textures[0]);
+	if (game->map->texture->south_wall_is_xpm)
+		load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall,
+			game->textures[1]);
+	if (game->map->texture->east_wall_is_xpm)
+		load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall,
+			game->textures[2]);
+	if (game->map->texture->west_wall_is_xpm)
+		load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall,
+			game->textures[3]);
 }
 
 t_texture_img	*init_text_img(void)

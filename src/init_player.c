@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:27:23 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 08:30:34 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 10:11:53 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,4 @@ t_player	*init_player(t_map *map)
 		ft_error("[init_player] : player malloc failed");
 	garbage_collector(player, false, NULL);
 	return (find_player_position(map, player));
-}
-
-void	set_player_direction(char direction, t_player *player)
-{
-	if (direction == 'N')
-		player->dir = init_vector(0.0f, -1.0f);
-	else if (direction == 'S')
-		player->dir = init_vector(0.0f, 1.0f);
-	else if (direction == 'E')
-		player->dir = init_vector(1.0f, 0.0f);
-	else if (direction == 'W')
-		player->dir = init_vector(-1.0f, 0.0f);
 }

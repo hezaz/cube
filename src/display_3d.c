@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:12:48 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/24 14:49:26 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 10:13:06 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	rgb_to_int(t_rgb rgb)
 {
 	int	color;
 
-	printf("rgb is %d, %d, %d\n", rgb.r, rgb.b, rgb.g);
 	color = rgb.r;
 	color = (color << 8) + rgb.g;
 	color = (color << 8) + rgb.b;

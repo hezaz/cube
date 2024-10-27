@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:45:03 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 08:38:57 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 10:09:00 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

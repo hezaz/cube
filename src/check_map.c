@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:23 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 08:21:34 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 10:08:26 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,3 @@ void	check_left_right_borders(char **map, int height, t_game *game)
 		y++;
 	}
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 08:59:21 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 11:06:08 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_rgb_color(char *line)
 	{
 		if (*line == ',')
 			commas++;
-		else if (!ft_isdigit(*line) && *line != ' ')
+		else if (!ft_isdigit(*line) && *line != ' ' && *line != '\n')
 			return (0);
 		line++;
 	}
@@ -46,7 +46,6 @@ t_rgb	parse_rgb(char *line)
 	color.r = ft_atoi(values[0]);
 	color.g = ft_atoi(values[1]);
 	color.b = ft_atoi(values[2]);
-	printf("parseRGB: %d %d %d\n", color.r, color.g, color.b);
 	free(values[0]);
 	values[0] = NULL;
 	free(values[1]);
