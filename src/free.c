@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:22:17 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 08:23:23 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 13:49:57 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,23 @@ void	free_textures(t_game *game)
 
 void	free_walls(t_game *game)
 {
-	if (game->map->texture->north_wall)
-		free(game->map->texture->north_wall);
-	if (game->map->texture->east_wall)
-		free(game->map->texture->east_wall);
-	if (game->map->texture->west_wall)
-		free(game->map->texture->west_wall);
-	if (game->map->texture->south_wall)
-		free(game->map->texture->south_wall);
+	if (game)
+	{
+		if (game->map)
+		{
+			if (game->map->texture)
+			{
+				if (game->map->texture->north_wall)
+					free(game->map->texture->north_wall);
+				if (game->map->texture->east_wall)
+					free(game->map->texture->east_wall);
+				if (game->map->texture->west_wall)
+					free(game->map->texture->west_wall);
+				if (game->map->texture->south_wall)
+					free(game->map->texture->south_wall);
+			}
+		}
+	}
 }
 
 void	free_mlx(t_game *game)

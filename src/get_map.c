@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 10:10:32 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:20:37 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	process_line(char *line, int *cpt, t_map *map, int *row)
 {
 	(*cpt)++;
 	if (is_texture_line(line))
-		get_texture_line(map, line);
+	{
+		if (!get_texture_line(map, line))
+			map->map_error = 1;
+	}
 	else if (!is_map_line(line) && *cpt < 7)
 		map->map_error = 1;
 	else if (is_map_line(line) && *cpt >= 7)

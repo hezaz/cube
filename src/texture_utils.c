@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:40 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 11:06:08 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 13:06:47 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ t_rgb	parse_rgb(char *line)
 
 t_texture_img	*select_texture(t_game *data, t_ray *ray)
 {
-	if (ray->side == 0 && ray->ray_dirX > 0)
+	if (ray->side == 0 && ray->ray_dir_x > 0)
 		return (data->textures[2]);
-	else if (ray->side == 0 && ray->ray_dirX < 0)
+	else if (ray->side == 0 && ray->ray_dir_x < 0)
 		return (data->textures[3]);
-	else if (ray->side == 1 && ray->ray_dirY > 0)
+	else if (ray->side == 1 && ray->ray_dir_y > 0)
 		return (data->textures[1]);
 	else
 		return (data->textures[0]);

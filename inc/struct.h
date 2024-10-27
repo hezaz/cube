@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 12:24:52 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 13:14:49 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
-
 }					t_mlx;
 
 typedef struct s_rgb
@@ -69,7 +68,7 @@ typedef struct s_texture_img
 	char			*data;
 	int				width;
 	int				height;
-	int bpp; // Bits per pixel
+	int				bpp;
 	int				size_line;
 	int				endian;
 }					t_texture_img;
@@ -101,18 +100,18 @@ typedef struct s_game
 
 typedef struct s_ray
 {
-	int				mapX;
-	int				mapY;
-	int				stepX;
-	int				stepY;
+	int				map_x;
+	int				map_y;
+	int				step_x;
+	int				step_y;
 	int				side;
-	double			camX;
-	double			ray_dirX;
-	double			ray_dirY;
-	double			side_distX;
-	double			side_distY;
-	double			delta_distX;
-	double			delta_distY;
+	double			cam_x;
+	double			ray_dir_x;
+	double			ray_dir_y;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
 	double			perp_wall_dist;
 	bool			wall_hit;
 }					t_ray;
@@ -122,10 +121,10 @@ typedef struct s_draw_params
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
-	double			wallX;
-	int				texX;
+	double			wall_x;
+	int				tex_x;
 	double			step;
-	double			texPos;
+	double			tex_pos;
 	t_texture_img	*texture;
 }					t_draw_params;
 

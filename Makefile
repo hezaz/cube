@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+         #
+#    By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 12:45:26 by codespace         #+#    #+#              #
-#    Updated: 2024/10/27 09:09:25 by baptistevie      ###   ########.fr        #
+#    Updated: 2024/10/27 14:47:15 by bvieilhe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,8 @@ LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 LIBFT_FLAGS	= -Llibft -lft
 
-SRCS_FILES	=	check_map.c \
+SRCS_FILES	=	check_config.c \
+				check_map.c \
 				check_map2.c \
 				display_2d.c \
 				display_3d.c \

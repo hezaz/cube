@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 08:32:24 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 14:00:49 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_map	*init_map(void)
 	map->texture = malloc(sizeof(t_texture));
 	if (!map->texture)
 		ft_error("[init_map(...)] : t_texture malloc failed");
+	init_texture(map->texture);
 	garbage_collector(map->texture, false, NULL);
 	return (map);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 16:13:25 by bvieilhe          #+#    #+#             */
-/*   Updated: 2024/10/24 16:24:31 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 13:19:33 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@
 # define RED_PIXEL 0xFF0000
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
-#define M_PI 3.14159265358979323846
+# define M_PI 3.14159265358979323846
 # define BLACK_PIXEL 0x0
 
 # define MOVE_SPEED 0.3f
 # define ROTATE_SPEED 8.0f // Vitesse de rotation en degrés
-# define DEG_TO_RAD(angle_in_degrees) ((angle_in_degrees)*M_PI / 180.0f)
 
 # define NORTH 'N'
 # define SOUTH 'S'

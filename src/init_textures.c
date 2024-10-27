@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:53 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 12:26:11 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 15:50:46 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,29 @@ t_texture_img	*init_text_img(void)
 	text_img->size_line = 0;
 	text_img->endian = 0;
 	return (text_img);
+}
+
+void	init_texture(t_texture *texture)
+{
+	texture->east_wall = NULL;
+	texture->west_wall = NULL;
+	texture->south_wall = NULL;
+	texture->north_wall = NULL;
+	texture->east_wall_is_xpm = -1;
+	texture->west_wall_is_xpm = -1;
+	texture->south_wall_is_xpm = -1;
+	texture->north_wall_is_xpm = -1;
+	init_rgb(&(texture->east_wall_rgb));
+	init_rgb(&(texture->west_wall_rgb));
+	init_rgb(&(texture->north_wall_rgb));
+	init_rgb(&(texture->south_wall_rgb));
+	init_rgb(&(texture->ceiling));
+	init_rgb(&(texture->floor));
+}
+
+void	init_rgb(t_rgb *rgb)
+{
+	rgb->r = 0;
+	rgb->g = 0;
+	rgb->b = 0;
 }

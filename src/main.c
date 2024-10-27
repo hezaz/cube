@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 10:08:18 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:50:22 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	initialize_game_data(t_game *data, char *map_path)
 {
 	data->map = get_map(map_path);
 	if (data->map == NULL || data->map->map_error)
-		error_and_exit("Error: map or cub file invalid", data);
+		error_and_exit("Map or cub file invalid", data);
 	data->player = init_player(data->map);
 	if (!data->player)
 		return (0);
@@ -84,7 +84,9 @@ int	main(int ac, char **av)
 	t_game	*data;
 
 	if (ac != 2)
-		return (0);
+		return (ft_error("Bad arguments"), 0);
+	if (open(av[1], O_RDONLY) < 0)
+		return (ft_error("Map file isn't valid"), 0);
 	data = init_game();
 	if (!initialize_mlx(data))
 		return (MLX_ERROR);
