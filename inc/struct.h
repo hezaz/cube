@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/25 22:12:12 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 12:24:52 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_texture
 typedef struct s_texture_img
 {
 	void			*img_ptr;
+	t_rgb			*rgb;
 	char			*data;
 	int				width;
 	int				height;

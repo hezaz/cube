@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:57:32 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 09:03:30 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/10/27 12:43:59 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,22 @@
 void	draw_line(t_game *data, t_ray *ray, int x)
 {
 	t_draw_params	params;
+	int				y;
 
 	calculate_line_dimensions(ray, &params.line_height, &params.draw_start,
 		&params.draw_end);
+	y = params.draw_start;
 	params.wallX = calculate_wallx(data, ray);
 	params.texture = select_texture(data, ray);
 	params.texX = adjust_texture_x(ray, params.texture, params.wallX);
 	params.step = 1.0 * params.texture->height / params.line_height;
 	params.texPos = (params.draw_start - WINDOW_HEIGHT / 2 + params.line_height
 			/ 2) * params.step;
-	draw_texture_line(data, ray, x, &params);
+	if (params.texture->rgb)
+		while (y < params.draw_end)
+			img_pix_put(&data->img, x, y++, rgb_to_int(*(params.texture->rgb)));
+	else
+		draw_texture_line(data, ray, x, &params);
 }
 
 void	perform_dda(t_game *data, t_ray *ray)

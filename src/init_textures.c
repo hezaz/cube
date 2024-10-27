@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:53 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 11:11:53 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 12:26:11 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,23 @@ void	go_load_textures(t_game *game)
 	if (game->map->texture->north_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall,
 			game->textures[0]);
+	else
+		game->textures[0]->rgb = &(game->map->texture->north_wall_rgb);
 	if (game->map->texture->south_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall,
 			game->textures[1]);
+	else
+		game->textures[1]->rgb = &(game->map->texture->south_wall_rgb);
 	if (game->map->texture->east_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall,
 			game->textures[2]);
+	else
+		game->textures[2]->rgb = &(game->map->texture->east_wall_rgb);
 	if (game->map->texture->west_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall,
 			game->textures[3]);
+	else
+		game->textures[3]->rgb = &(game->map->texture->west_wall_rgb);
 }
 
 t_texture_img	*init_text_img(void)
@@ -51,6 +59,7 @@ t_texture_img	*init_text_img(void)
 		ft_error("[init_text_img(...)] : malloc failed");
 	garbage_collector(text_img, false, NULL);
 	text_img->img_ptr = NULL;
+	text_img->rgb = NULL;
 	text_img->data = NULL;
 	text_img->width = 0;
 	text_img->height = 0;
