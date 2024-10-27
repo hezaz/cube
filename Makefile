@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 12:45:26 by codespace         #+#    #+#              #
-#    Updated: 2024/10/19 06:40:27 by marvin           ###   ########.fr        #
+#    Updated: 2024/10/27 09:09:25 by baptistevie      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,22 +86,27 @@ LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 LIBFT_FLAGS	= -Llibft -lft
 
-SRCS_FILES	=	display_2d.c \
+SRCS_FILES	=	check_map.c \
+				check_map2.c \
+				display_2d.c \
 				display_3d.c \
 				error.c \
+				free.c \
 				get_map_utils.c \
 				get_map.c \
 				hooks.c \
 				img.c \
+				init_player.c \
+				init_textures.c \
 				init.c \
 				main.c \
 				move.c \
-				render.c \
-				check_map.c \
 				player.c \
+				raycast_textures.c \
+				raycasting.c \
+				render.c \
 				texture_floor.c \
 				texture_walls.c \
-				raycasting.c \
 				texture_utils.c
 
 INC_FILES	= cub3d.h
