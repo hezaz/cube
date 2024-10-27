@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 15:50:22 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:57:33 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,14 @@ void	setup_hooks(t_game *data)
 int	main(int ac, char **av)
 {
 	t_game	*data;
+	int		fd;
 
 	if (ac != 2)
 		return (ft_error("Bad arguments"), 0);
-	if (open(av[1], O_RDONLY) < 0)
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
 		return (ft_error("Map file isn't valid"), 0);
+	close(fd);
 	data = init_game();
 	if (!initialize_mlx(data))
 		return (MLX_ERROR);
