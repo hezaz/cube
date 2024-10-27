@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:25:48 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 15:38:54 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:47:30 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void	get_map_line(t_map *map, char *line, int *row)
 	i = 0;
 	while (line[i] && i < map->width)
 	{
+		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E'
+			|| line[i] == 'W')
+			map->nbr_p++;
 		map->map[*row][i] = line[i];
 		i++;
 	}

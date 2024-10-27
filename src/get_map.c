@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 15:20:37 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:41:42 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ t_map	*get_map(char *path)
 	if (fd < 0)
 		ft_error("[get_map] : failed to open file");
 	process_map_file(fd, map);
+	if (map->nbr_p != 1)
+		map->map_error = 1;
 	return (map);
 }
 
