@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_walls.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:31:05 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 15:49:02 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:55:28 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	handle_wall_texture(char *line, char **path, t_rgb *rgb, int *is_xpm)
 	}
 }
 
-bool	mak(t_map *map, char *line)
+bool	handle_texture_north(t_map *map, char *line)
 {
 	return (handle_wall_texture(line, &(map->texture->north_wall),
 			&(map->texture->north_wall_rgb),
