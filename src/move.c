@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:45:03 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/24 15:32:49 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:38:57 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ void	rotate_player(t_game *data, double angle)
 	prev_y = data->player->plan->y;
 	data->player->plan->x = (prev_x * cos(angle)) - (prev_y * sin(angle));
 	data->player->plan->y = (prev_x * sin(angle)) + (prev_y * cos(angle));
+}
+
+double	deg_to_rad(double angle_in_degrees)
+{
+	return (angle_in_degrees * M_PI / 180.0);
 }

@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/25 22:16:10 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:39:16 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	render_background(t_img *img, int color)
-{
-	int	i;
-	int	j;
+// void	render_background(t_img *img, int color)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (i < WINDOW_HEIGHT)
-	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-		{
-			img_pix_put(img, j++, i, color);
-		}
-		++i;
-	}
-}
+// 	i = 0;
+// 	while (i < WINDOW_HEIGHT)
+// 	{
+// 		j = 0;
+// 		while (j < WINDOW_WIDTH)
+// 		{
+// 			img_pix_put(img, j++, i, color);
+// 		}
+// 		++i;
+// 	}
+// }
 
 int	initialize_mlx(t_game *data)
 {
@@ -67,11 +67,6 @@ int	handle_exit(t_game *game)
 	garbage_collector(NULL, true, game);
 	exit(EXIT_SUCCESS);
 	return (0);
-}
-
-double	deg_to_rad(double angle_in_degrees)
-{
-	return (angle_in_degrees * M_PI / 180.0);
 }
 
 
