@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:31:05 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 15:55:28 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/10/27 18:15:23 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ bool	handle_wall_texture(char *line, char **path, t_rgb *rgb, int *is_xpm)
 
 bool	handle_texture_north(t_map *map, char *line)
 {
+	if (map->texture->north_wall)
+		return (false);
 	return (handle_wall_texture(line, &(map->texture->north_wall),
 			&(map->texture->north_wall_rgb),
 			&(map->texture->north_wall_is_xpm)));
@@ -39,6 +41,8 @@ bool	handle_texture_north(t_map *map, char *line)
 
 bool	handle_texture_south(t_map *map, char *line)
 {
+	if (map->texture->south_wall)
+		return (false);
 	return (handle_wall_texture(line, &(map->texture->south_wall),
 			&(map->texture->south_wall_rgb),
 			&(map->texture->south_wall_is_xpm)));
@@ -46,14 +50,16 @@ bool	handle_texture_south(t_map *map, char *line)
 
 bool	handle_texture_east(t_map *map, char *line)
 {
+	if (map->texture->east_wall)
+		return (false);
 	return (handle_wall_texture(line, &(map->texture->east_wall),
-			&(map->texture->east_wall_rgb),
-			&(map->texture->east_wall_is_xpm)));
+			&(map->texture->east_wall_rgb), &(map->texture->east_wall_is_xpm)));
 }
 
 bool	handle_texture_west(t_map *map, char *line)
 {
+	if (map->texture->west_wall)
+		return (false);
 	return (handle_wall_texture(line, &(map->texture->west_wall),
-			&(map->texture->west_wall_rgb),
-			&(map->texture->west_wall_is_xpm)));
+			&(map->texture->west_wall_rgb), &(map->texture->west_wall_is_xpm)));
 }

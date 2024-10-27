@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+         #
+#    By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 12:45:26 by codespace         #+#    #+#              #
-#    Updated: 2024/10/27 14:47:15 by bvieilhe         ###   ########.fr        #
+#    Updated: 2024/10/27 18:14:05 by hzaz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@
 
 # .PHONY: all clean fclean re
 
-NAME = cub3d
+NAME = cub3D
 
 CC = cc
 CFLAGS =  -Wall -Werror -Wextra -g3
