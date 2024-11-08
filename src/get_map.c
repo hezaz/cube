@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 17:12:04 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/08 20:26:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,20 @@ void	process_map_file(int fd, t_map *map)
 	cpt = 0;
 	while (line)
 	{
-		if (*line != '\n')
+		if (cpt < 8)
+		{
+			if (*line != '\n')
+				process_line(line, &cpt, map, &map_row);
+		}
+		else
+		{
+			if (*line == '\n')
+			{
+				map->map_error = 1;
+				return ;
+			}
 			process_line(line, &cpt, map, &map_row);
+		}
 		free(line);
 		line = get_next_line(fd);
 	}
