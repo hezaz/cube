@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/11 16:33:20 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/11 17:17:45 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	process_map_file(int fd, t_map *map)
 		else
 		{
 			if (*line == '\n')
-				map->map_error = 1;
+				map->map_hasNL = 1;
+				// map->map_error = 1;
 			else
 				process_line(line, &cpt, map, &map_row);
 		}
@@ -54,6 +55,8 @@ void	process_map_file(int fd, t_map *map)
 
 void	process_line(char *line, int *cpt, t_map *map, int *row)
 {
+	if (map->map_hasNL == 1)
+		map->map_error = 1;
 	(*cpt)++;
 	if (is_texture_line(line))
 	{
