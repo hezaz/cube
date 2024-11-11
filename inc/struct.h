@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:40:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 16:39:35 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/11 12:25:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ typedef struct s_texture
 	char			*west_wall;
 	char			*north_wall;
 	char			*south_wall;
-	t_rgb			east_wall_rgb;
-	t_rgb			west_wall_rgb;
-	t_rgb			north_wall_rgb;
-	t_rgb			south_wall_rgb;
 	t_rgb			floor;
 	t_rgb			ceiling;
 	int				east_wall_is_xpm;

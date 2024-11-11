@@ -3,7 +3,7 @@ SO ./greystone.xpm
 WE ./redbrick.xpm
 EA ./mossy.xpm
 
-F 20,100,0
+F 20,100,100
 C 25,30,0
 
 

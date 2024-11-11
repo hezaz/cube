@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_floor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:33:15 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 18:09:37 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/11 16:22:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,22 @@ bool	handle_floor_ceiling_texture(char *line, t_rgb *rgb, int *is_rgb)
 			return (false);
 	}
 	else
-		*is_rgb = 0;
+		return (false);
 	return (true);
 }
 
 bool	handle_texture_floor(t_map *map, char *line)
 {
+	if (map->texture->floor_is_rgb != -1)
+		return (false);
 	return (handle_floor_ceiling_texture(line, &(map->texture->floor),
 			&(map->texture->floor_is_rgb)));
 }
 
 bool	handle_texture_ceiling(t_map *map, char *line)
 {
+	if (map->texture->ceiling_is_rgb != -1)
+		return (false);
 	return (handle_floor_ceiling_texture(line, &(map->texture->ceiling),
 			&(map->texture->ceiling_is_rgb)));
 }

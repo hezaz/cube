@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:53 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 15:50:46 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:21:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,15 @@ void	go_load_textures(t_game *game)
 	if (game->map->texture->north_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->north_wall,
 			game->textures[0]);
-	else
-		game->textures[0]->rgb = &(game->map->texture->north_wall_rgb);
 	if (game->map->texture->south_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->south_wall,
 			game->textures[1]);
-	else
-		game->textures[1]->rgb = &(game->map->texture->south_wall_rgb);
 	if (game->map->texture->east_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->east_wall,
 			game->textures[2]);
-	else
-		game->textures[2]->rgb = &(game->map->texture->east_wall_rgb);
 	if (game->map->texture->west_wall_is_xpm)
 		load_texture(game->mlx->mlx_ptr, game->map->texture->west_wall,
 			game->textures[3]);
-	else
-		game->textures[3]->rgb = &(game->map->texture->west_wall_rgb);
 }
 
 t_texture_img	*init_text_img(void)
@@ -79,10 +71,8 @@ void	init_texture(t_texture *texture)
 	texture->west_wall_is_xpm = -1;
 	texture->south_wall_is_xpm = -1;
 	texture->north_wall_is_xpm = -1;
-	init_rgb(&(texture->east_wall_rgb));
-	init_rgb(&(texture->west_wall_rgb));
-	init_rgb(&(texture->north_wall_rgb));
-	init_rgb(&(texture->south_wall_rgb));
+	texture->floor_is_rgb = -1;
+	texture->ceiling_is_rgb = -1;
 	init_rgb(&(texture->ceiling));
 	init_rgb(&(texture->floor));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 15:38:03 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:20:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ t_texture_img	*select_texture(t_game *data, t_ray *ray);
 int				get_texture_color(t_texture_img *texture, int x, int y);
 
 /********** texture_wall.c *************/
-bool			handle_wall_texture(char *line, char **path, t_rgb *rgb,
+bool			handle_wall_texture(char *line, char **path,
 					int *is_xpm);
 bool			handle_texture_north(t_map *map, char *line);
 bool			handle_texture_south(t_map *map, char *line);
