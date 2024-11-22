@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/11 16:20:37 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/22 12:05:04 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void			check_left_right_borders(char **map, int height, t_game *game);
 void			check_inner_part(char **map, int height, t_game *game);
 void			check_map(t_game *game);
 
+/********** close_game.c *************/
+void			close_game(t_game *game);
+
 /********** display_2d.c *************/
 void			draw_tile(int x, int y, int color, t_game *data);
 void			draw_map(t_game *data);
@@ -63,12 +66,14 @@ void			draw_background(t_game *data);
 void			ft_error(char *msg);
 void			error_and_exit(char *message, t_game *game);
 void			delete_node(void *ptr);
-void			*garbage_collector(void *ptr, bool clean, t_game *game);
+// void			*garbage_collector(void *ptr, bool clean, t_game *game);
 
 /************* free.c *************/
 void			free_textures(t_game *game);
 void			free_walls(t_game *game);
 void			free_mlx(t_game *game);
+void			free_map(t_game *game);
+void			free_player(t_player *player);
 
 /********** get_map_utils.c ********/
 bool			is_texture_line(char *line);

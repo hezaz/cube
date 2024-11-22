@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:22:17 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/10/27 13:49:57 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:02:18 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,33 @@ void	free_mlx(t_game *game)
 		mlx_destroy_display(game->mlx->mlx_ptr);
 		free(game->mlx->mlx_ptr);
 	}
+}
+
+void	free_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	free_walls(game);
+	while (game->map->map[i])
+	{
+		free(game->map->map[i]);
+		i++;
+	}
+	if (game->map->map)
+		free(game->map->map);
+	if (game->map)
+		free(game->map);
+}
+
+void	free_player(t_player *player)
+{
+	if (player->dir)
+		free(player->dir);
+	if (player->plan)
+		free(player->plan);
+	if (player->pos)
+		free(player->pos);
+	if (player)
+		free(player);
 }

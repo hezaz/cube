@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+         #
+#    By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 12:45:26 by codespace         #+#    #+#              #
-#    Updated: 2024/10/27 18:14:05 by hzaz             ###   ########.fr        #
+#    Updated: 2024/11/22 12:04:39 by baptistevie      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,7 @@ LIBFT_FLAGS	= -Llibft -lft
 SRCS_FILES	=	check_config.c \
 				check_map.c \
 				check_map2.c \
+				close_game.c \
 				display_2d.c \
 				display_3d.c \
 				error.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/11 17:17:45 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/22 11:28:22 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	initialize_map(t_map *map, char *path)
 	map->map = malloc(sizeof(char *) * map->height);
 	if (!map->map)
 		ft_error("[initialize_map] : map->map malloc failed");
-	garbage_collector(map->map, false, NULL);
+	// garbage_collector(map->map, false, NULL); // GC_FALSE
 }
 
 void	process_map_file(int fd, t_map *map)

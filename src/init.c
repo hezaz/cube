@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/11/11 17:15:49 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/22 12:00:08 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_vector	*init_vector(double x, double y)
 	new_vect = malloc(sizeof(t_vector));
 	if (!new_vect)
 		ft_error("[init_vector(...)] : vector malloc failed");
-	garbage_collector(new_vect, false, NULL);
+	// garbage_collector(new_vect, false, NULL); // GC_FALSE
 	new_vect->x = x;
 	new_vect->y = y;
 	return (new_vect);
@@ -32,7 +32,7 @@ t_map	*init_map(void)
 	map = malloc(sizeof(t_map));
 	if (!map)
 		ft_error("[init_map(...)] : t_map malloc failed");
-	garbage_collector(map, false, NULL);
+	// garbage_collector(map, false, NULL); // GC_FALSE
 	map->map_error = 0;
 	map->map_hasNL = 0;
 	map->nbr_p = 0;
@@ -42,7 +42,7 @@ t_map	*init_map(void)
 	if (!map->texture)
 		ft_error("[init_map(...)] : t_texture malloc failed");
 	init_texture(map->texture);
-	garbage_collector(map->texture, false, NULL);
+	// garbage_collector(map->texture, false, NULL); // GC_FALSE
 	return (map);
 }
 
@@ -53,7 +53,7 @@ t_mlx	*init_mlx(void)
 	mlx = malloc(sizeof(t_mlx));
 	if (!mlx)
 		ft_error("[init_mlx(...)] : t_mlx malloc failed");
-	garbage_collector(mlx, false, NULL);
+	// garbage_collector(mlx, false, NULL); // GC_FALSE
 	return (mlx);
 }
 
@@ -76,7 +76,7 @@ t_game	*init_game(void)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		ft_error("[init_game(...)] : t_game malloc failed");
-	garbage_collector(game, false, NULL);
+	// garbage_collector(game, false, NULL); // GC_FALSE
 	game->map = init_map();
 	game->mlx = init_mlx();
 	game->img = init_img();

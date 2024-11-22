@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 16:57:33 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/11/22 12:08:16 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	initialize_game_data(t_game *data, char *map_path)
 
 int	handle_exit(t_game *game)
 {
-	garbage_collector(NULL, true, game);
+	close_game(game);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -97,6 +97,7 @@ int	main(int ac, char **av)
 		return (1);
 	setup_hooks(data);
 	mlx_loop(data->mlx->mlx_ptr);
-	garbage_collector(NULL, true, data);
+	close_game(data);
+	// garbage_collector(NULL, true, data); // GC_TRUE
 	return (1);
 }

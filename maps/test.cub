@@ -1,14 +1,14 @@
-NO ./colorstone.xpm
+NO ./textures/colorstone.xpm
 
 
 
-SO ./greystone.xpm
+SO ./textures/greystone.xpm
 
 
-WE ./redbrick.xpm
+WE ./textures/redbrick.xpm
 
 
-EA ./mossy.xpm
+EA ./textures/mossy.xpm
 
 F 20,100,100
 C 25,30,0

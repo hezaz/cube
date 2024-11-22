@@ -6,7 +6,7 @@
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/27 08:23:51 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/22 11:57:12 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_error(char *msg)
 void	error_and_exit(char *message, t_game *game)
 {
 	printf("Error\n%s\n", message);
-	garbage_collector(NULL, true, game);
+	close_game(game);	
 	exit(1);
 }
 

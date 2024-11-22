@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 16:13:25 by bvieilhe          #+#    #+#             */
-/*   Updated: 2024/10/27 13:19:33 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:06:24 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define RED_PIXEL 0xFF0000
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
-# define M_PI 3.14159265358979323846
+// # define M_PI 3.14159265358979323846
 # define BLACK_PIXEL 0x0
 
 # define MOVE_SPEED 0.3f

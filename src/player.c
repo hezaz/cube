@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:23:16 by hedi              #+#    #+#             */
-/*   Updated: 2024/10/27 13:16:40 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:58:55 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	handle_keypress(int keysym, t_game *game)
 {
 	if (keysym == XK_Escape)
 	{
-		garbage_collector(NULL, true, game);
+		close_game(game);
 		exit(EXIT_FAILURE);
 	}
 	else
