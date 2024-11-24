@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:33:34 by bvieilhe          #+#    #+#             */
-/*   Updated: 2024/11/22 14:22:39 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:16:51 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,10 @@ bool	is_valid_rgb(t_rgb *rgb)
 bool	is_valid_xpm(char *path)
 {
 	char	*tmp;
-	// char	*full_path;
 	int		fd;
 
 	tmp = path + ft_strlen(path) - 4;
-	// full_path = ft_strjoin("textures/", path);
-	// if (!full_path)
-	// 	return (false);
 	fd = open(path, O_RDONLY);
-	// free(full_path);
 	if (fd == -1)
 		return (false);
 	close(fd);

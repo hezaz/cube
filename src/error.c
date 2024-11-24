@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:43:25 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/22 11:57:12 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:17:35 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_error(char *msg)
 void	error_and_exit(char *message, t_game *game)
 {
 	printf("Error\n%s\n", message);
-	close_game(game);	
+	close_game(game);
 	exit(1);
 }
 

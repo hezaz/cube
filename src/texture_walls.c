@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_walls.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:31:05 by hedi              #+#    #+#             */
-/*   Updated: 2024/11/22 14:27:16 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:23:38 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,22 @@ bool	handle_texture_south(t_map *map, char *line)
 {
 	if (map->texture->south_wall)
 		return (false);
-	return (handle_wall_texture(line, &(map->texture->south_wall), &(map->texture->south_wall_is_xpm)));
+	return (handle_wall_texture(line, &(map->texture->south_wall),
+			&(map->texture->south_wall_is_xpm)));
 }
 
 bool	handle_texture_east(t_map *map, char *line)
 {
 	if (map->texture->east_wall)
 		return (false);
-	return (handle_wall_texture(line, &(map->texture->east_wall), &(map->texture->east_wall_is_xpm)));
+	return (handle_wall_texture(line, &(map->texture->east_wall),
+			&(map->texture->east_wall_is_xpm)));
 }
 
 bool	handle_texture_west(t_map *map, char *line)
 {
 	if (map->texture->west_wall)
 		return (false);
-	return (handle_wall_texture(line, &(map->texture->west_wall), &(map->texture->west_wall_is_xpm)));
+	return (handle_wall_texture(line, &(map->texture->west_wall),
+			&(map->texture->west_wall_is_xpm)));
 }

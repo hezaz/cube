@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/24 14:46:17 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:23:36 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,5 @@ int	main(int ac, char **av)
 	setup_hooks(data);
 	mlx_loop(data->mlx->mlx_ptr);
 	close_game(data);
-	// garbage_collector(NULL, true, data); // GC_TRUE
 	return (1);
 }

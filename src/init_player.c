@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:27:23 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/11/22 11:59:15 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:23:10 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ t_player	*init_player(t_map *map)
 	player = malloc(sizeof(t_player));
 	if (!player)
 		ft_error("[init_player] : player malloc failed");
-	// garbage_collector(player, false, NULL); // GC_FALSE
 	return (find_player_position(map, player));
 }

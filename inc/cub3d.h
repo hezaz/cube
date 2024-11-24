@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/24 13:49:15 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:22:12 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void			draw_background(t_game *data);
 
 /************* error.c *************/
 void			ft_error(char *msg);
+void			ft_frere(char **line);
 void			error_and_exit(char *message, t_game *game);
 void			delete_node(void *ptr);
 // void			*garbage_collector(void *ptr, bool clean, t_game *game);

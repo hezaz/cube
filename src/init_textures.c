@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:30:53 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/11/22 11:59:21 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:23:25 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	load_texture(void *mlx_ptr, char *path, t_texture_img *texture)
 {
-	// char	*full_path;
-
-	// full_path = ft_strjoin("textures/", path);
-	// garbage_collector(full_path, false, NULL);
 	texture->img_ptr = mlx_xpm_file_to_image(mlx_ptr, path,
 			&texture->width, &texture->height);
 	if (!texture->img_ptr)
@@ -49,7 +45,6 @@ t_texture_img	*init_text_img(void)
 	text_img = malloc(sizeof(t_texture_img));
 	if (!text_img)
 		ft_error("[init_text_img(...)] : malloc failed");
-	// garbage_collector(text_img, false, NULL); // GC_FALSE
 	text_img->img_ptr = NULL;
 	text_img->rgb = NULL;
 	text_img->data = NULL;

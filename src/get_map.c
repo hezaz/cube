@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/24 15:13:42 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:24:25 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	initialize_map(t_map *map, char *path)
 	map->map = malloc(sizeof(char *) * map->height);
 	if (!map->map)
 		ft_error("[initialize_map] : map->map malloc failed");
-	// garbage_collector(map->map, false, NULL); // GC_FALSE
 }
 
 void	process_map_file(int fd, t_map *map)
@@ -41,21 +40,19 @@ void	process_map_file(int fd, t_map *map)
 		else
 		{
 			if (*line == '\n')
-				map->map_hasNL = 1;
-				// map->map_error = 1;
+				map->map_hasnl = 1;
 			else
 				process_line(line, &cpt, map, &map_row);
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
-	free(line);
-	line = NULL;
+	ft_frere(&line);
 }
 
 void	process_line(char *line, int *cpt, t_map *map, int *row)
 {
-	if (map->map_hasNL == 1)
+	if (map->map_hasnl == 1)
 		map->map_error = 1;
 	(*cpt)++;
 	if (is_texture_line(line))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:25:48 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/22 11:28:16 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:22:26 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	get_map_line(t_map *map, char *line, int *row)
 	map->map[*row] = malloc((map->width + 1) * sizeof(char));
 	if (!map->map[*row])
 		ft_error("[get_map_line(...)] : malloc failed");
-	//garbage_collector(map->map[*row], false, NULL); // GC_FALSE
 	i = 0;
 	while (line[i] && i < map->width)
 	{
@@ -77,4 +76,10 @@ void	get_map_line(t_map *map, char *line, int *row)
 	}
 	map->map[*row][i] = '\0';
 	(*row)++;
+}
+
+void	ft_frere(char **line)
+{
+	free(*line);
+	*line = NULL;
 }
