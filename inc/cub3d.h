@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/22 12:05:04 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 13:49:15 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void			get_map_line(t_map *map, char *line, int *row);
 void			initialize_map(t_map *map, char *path);
 void			process_map_file(int fd, t_map *map);
 void			process_line(char *line, int *cpt, t_map *map, int *row);
-t_map			*get_map(char *path);
+void			get_map(char *path, t_game *game);
 void			get_map_dim(t_map *map, char *path);
 
 /************* hooks.c *************/

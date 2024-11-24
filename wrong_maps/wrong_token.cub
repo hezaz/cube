@@ -1,5 +1,5 @@
 NO ./textures/colorstone.xpm
-SO ./textures/greystone.xpm
+FO ./textures/greystone.xpm
 WE ./textures/redbrick.xpm
 EA ./textures/mossy.xpm
 

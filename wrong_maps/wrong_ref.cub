@@ -1,4 +1,4 @@
-NO ./textures/colorstone.xpm
+NO ./textures/color
 SO ./textures/greystone.xpm
 WE ./textures/redbrick.xpm
 EA ./textures/mossy.xpm

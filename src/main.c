@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:36:50 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/22 12:08:16 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 14:46:17 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ int	initialize_mlx(t_game *data)
 
 int	initialize_game_data(t_game *data, char *map_path)
 {
-	data->map = get_map(map_path);
+	get_map(map_path, data);
 	if (data->map == NULL || data->map->map_error)
 		error_and_exit("Map or cub file invalid", data);
+	data->map->valid_map = 1;
 	data->player = init_player(data->map);
 	if (!data->player)
 		return (0);

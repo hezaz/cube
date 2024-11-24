@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:28:11 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/11/22 12:00:08 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 14:45:46 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_map	*init_map(void)
 		ft_error("[init_map(...)] : t_map malloc failed");
 	// garbage_collector(map, false, NULL); // GC_FALSE
 	map->map_error = 0;
+	map->valid_map = 0;
 	map->map_hasNL = 0;
 	map->nbr_p = 0;
 	map->height = 0;

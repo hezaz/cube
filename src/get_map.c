@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:27:29 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/22 14:26:41 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:13:42 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,31 +65,33 @@ void	process_line(char *line, int *cpt, t_map *map, int *row)
 	}
 	else if (!is_map_line(line) && *cpt < 7)
 		map->map_error = 1;
+	else if (is_map_line(line) && *cpt < 7)
+	{
+		get_map_line(map, line, row);
+		map->map_error = 1;
+	}
 	else if (is_map_line(line) && *cpt >= 7)
 		get_map_line(map, line, row);
 	else
 		map->map_error = 1;
 }
 
-t_map	*get_map(char *path)
+void	get_map(char *path, t_game *game)
 {
 	int		fd;
-	t_map	*map;
 	char	*tmp;
 
 	tmp = path + ft_strlen(path) - 4;
-	map = init_map();
 	if (!ft_strnstr(tmp, ".cub", 4))
-		map->map_error = 1;
-	initialize_map(map, path);
+		game->map->map_error = 1;
+	initialize_map(game->map, path);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		ft_error("[get_map] : failed to open file");
-	process_map_file(fd, map);
+	process_map_file(fd, game->map);
 	close(fd);
-	if (map->nbr_p != 1)
-		map->map_error = 1;
-	return (map);
+	if (game->map->nbr_p != 1)
+		game->map->map_error = 1;
 }
 
 void	get_map_dim(t_map *map, char *path)

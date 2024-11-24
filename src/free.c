@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 08:22:17 by baptistevie       #+#    #+#             */
-/*   Updated: 2024/11/22 12:02:18 by baptistevie      ###   ########.fr       */
+/*   Updated: 2024/11/24 15:11:51 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	free_textures(t_game *game)
 				mlx_destroy_image(game->mlx->mlx_ptr,
 					game->textures[i]->img_ptr);
 			}
+			free(game->textures[i]);
 		}
 		i++;
 	}
@@ -47,6 +48,7 @@ void	free_walls(t_game *game)
 					free(game->map->texture->west_wall);
 				if (game->map->texture->south_wall)
 					free(game->map->texture->south_wall);
+				free(game->map->texture);
 			}
 		}
 	}
@@ -56,12 +58,16 @@ void	free_mlx(t_game *game)
 {
 	if (game->img.mlx_img)
 		mlx_destroy_image(game->mlx->mlx_ptr, game->img.mlx_img);
-	if (game->mlx->win_ptr)
-		mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
-	if (game->mlx->mlx_ptr)
+	if (game->mlx)
 	{
-		mlx_destroy_display(game->mlx->mlx_ptr);
-		free(game->mlx->mlx_ptr);
+		if (game->mlx->win_ptr)
+			mlx_destroy_window(game->mlx->mlx_ptr, game->mlx->win_ptr);
+		if (game->mlx->mlx_ptr)
+		{
+			mlx_destroy_display(game->mlx->mlx_ptr);
+			free(game->mlx->mlx_ptr);
+		}
+		free(game->mlx);
 	}
 }
 
@@ -70,26 +76,33 @@ void	free_map(t_game *game)
 	int	i;
 
 	i = 0;
-	free_walls(game);
-	while (game->map->map[i])
-	{
-		free(game->map->map[i]);
-		i++;
-	}
-	if (game->map->map)
-		free(game->map->map);
 	if (game->map)
+	{
+		if (game->map->texture)
+			free_walls(game);
+		if (game->map->map)
+		{
+			while (i < game->map->height)
+			{
+				free(game->map->map[i]);
+				i++;
+			}
+			free(game->map->map);
+		}
 		free(game->map);
+	}
 }
 
 void	free_player(t_player *player)
 {
-	if (player->dir)
-		free(player->dir);
-	if (player->plan)
-		free(player->plan);
-	if (player->pos)
-		free(player->pos);
 	if (player)
+	{
+		if (player->dir)
+			free(player->dir);
+		if (player->plan)
+			free(player->plan);
+		if (player->pos)
+			free(player->pos);
 		free(player);
+	}
 }
